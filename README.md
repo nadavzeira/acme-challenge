@@ -1,4 +1,4 @@
-# acme-challenge
+# Acme-Challenge
 
 ## Introduction
 This is a challenge to test your Front-End skills and knowledge.
@@ -6,7 +6,7 @@ The objective is to evaluate its way of structuring and decision autonomy to bui
 
 In this challenge you should clone the repository into your IDE environment, open a new branch with your name, add the necessary components, commit your solution back to the repository, and open a merge request.
 
-## case
+## Case
 The Acme Corp company is a global organization with scientists all around the globe. The company management ask you to kraft a website that list all the scientists in a simple and objective way, with the ability to filter, and expand the available data.
 Your goal in this project is to work on the development of the Front End that will consume an API following the requirements proposed in this challenge.
 
