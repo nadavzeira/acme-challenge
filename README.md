@@ -11,8 +11,8 @@ The Acme Corp company is a global organization with scientists all around the gl
 Your goal in this project is to work on the development of the Front End that will consume an API following the requirements proposed in this challenge.
 
 ## Resources
-Study the REST API documentation: https://randomuser.me/documentation
-Material UI: https://material-ui.com/
+* Study the REST API documentation: https://randomuser.me/documentation
+* Material UI: https://material-ui.com/
 
 ## List of scientists
 The project's initial screen will be a list of patients that should contain a search engine to facilitate filtering all those displayed in the list,
