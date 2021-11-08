@@ -46,4 +46,4 @@ In addition to the challenge proposed with the two screens, we have some extras
 * Configure a dropdown menu to filter by nationality (hint: extract the nationalities from the scientist list)
 * Write Unit Tests or E2E Test in the Scientist List. Choose the best approach and library
 
-(**note:** _fill free to add, delete or modified any exsisting code if you think it will inprove your solotion_)
+(**note:** _feel free to add, delete or modified any exsisting code if you think it will inprove your solotion_)
