@@ -15,7 +15,7 @@ Your goal in this project is to work on the development of the Front End that wi
 * Material UI: https://material-ui.com/
 
 ## List of scientists
-The project's initial screen will be a list of patients that should contain a search engine to facilitate filtering all those displayed in the list,
+The project's initial screen will be a list of scientists that should contain a search engine to facilitate filtering all those displayed in the list,
 To get the data, we will use the Random User API https://randomuser.me/api/
 
 In addition to making the request, we must apply some filters in the API:
