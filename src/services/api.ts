@@ -1,7 +1,6 @@
 import axios from "axios";
 import { UserAPIProps, UsersDataProps } from "./types";
 import { transformUser } from "./utils";
-import { useListUsersContext } from "../context/listUsersContext";
 
 const api = axios.create({
   baseURL: "https://randomuser.me/api",
