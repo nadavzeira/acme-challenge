@@ -1,15 +1,17 @@
-import Routes from './routes/routes'
-import { ListUsersProvider } from './context/listUsersContext'
+import Routes from "./routes";
+import Header from "./components/Header";
+import { ListUsersProvider } from "./context/listUsersContext";
 
-import GlobalStyles from './styles/global'
+import GlobalStyles from "./styles/global";
 
-  export function App() { 
+export function App() {
   return (
     <ListUsersProvider>
-      <Routes/>
-      <GlobalStyles/>
+      <GlobalStyles />
+      <Header />
+      <Routes />
     </ListUsersProvider>
-  )
+  );
 }
 
 export default App;
