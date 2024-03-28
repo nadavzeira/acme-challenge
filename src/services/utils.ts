@@ -6,13 +6,6 @@ function formatDate(date: string){
   const formattedDate = format(parseISO(date), 'dd/MM/yyyy', {locale: ptBR});
   return formattedDate;
 }
-export const capitalizeText = (text: string) => {
-  return text
-    .toLowerCase()
-    .split(" ")
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(" ");
-};
 
 export const transformUser = (user: UserAPIProps): UsersDataProps => {
   const {
