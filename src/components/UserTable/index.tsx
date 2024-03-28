@@ -29,22 +29,39 @@ export default function UserTable() {
     setSelectedUser(scientist);
   };
 
+  const handlePageChange = (_: unknown, newPage: number) => {
+    setPage(newPage);
+  };
+
+  const handleRowPerPageChange = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setRowsPerPage(parseInt(event.target.value, 10));
+    setPage(0);
+  };
+
   return (
     <>
       <TableContainer style={{ height: "75vh", overflowY: "scroll" }}>
         <Table>
-          <TableHead>
+          <TableHead style={{ backgroundColor: "#a5a5a5" }}>
             <TableRow>
-              <TableCell>Name</TableCell>
-              <TableCell>Gender</TableCell>
-              <TableCell>Date of Birth</TableCell>
+              <TableCell style={{ color: "#000", fontWeight: "bold" }}>
+                Name
+              </TableCell>
+              <TableCell style={{ color: "#000", fontWeight: "bold" }}>
+                Gender
+              </TableCell>
+              <TableCell style={{ color: "#000", fontWeight: "bold" }}>
+                Date of Birth
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {currentPageUsers.map(({ name, gender, dob }, idx) => (
               <TableRow
                 key={idx}
-                onClick={(event) => handleRowClick(event, idx)}
+                onClick={(e) => handleRowClick(e, idx)}
                 style={{ cursor: "pointer" }}
               >
                 <TableCell>{`${name.first} ${name.last}`}</TableCell>
@@ -63,11 +80,8 @@ export default function UserTable() {
         count={usersData.length}
         rowsPerPage={rowsPerPage}
         page={page}
-        onPageChange={(_, newPage: number) => setPage(newPage)}
-        onRowsPerPageChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-          setRowsPerPage(parseInt(e.target.value, 10));
-          setPage(0);
-        }}
+        onPageChange={handlePageChange}
+        onRowsPerPageChange={handleRowPerPageChange}
       />
     </>
   );
