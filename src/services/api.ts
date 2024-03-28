@@ -3,15 +3,14 @@ import { UserAPIProps, UsersDataProps } from "./types";
 import { transformUser } from "./utils";
 
 const api = axios.create({
-  baseURL: "https://randomuser.me/api/",
+  baseURL: "https://randomuser.me/api",
 });
 
 export const getUsersFromAPI = async (): Promise<UsersDataProps[]> => {
   const seed = 'Cgen';
-  const { data: { results } } = await api.get<{ results: UserAPIProps[] }>(`/?seed=${seed}&results=25`);
+  const queryURL = `/?seed=${seed}&results=25`;
+  const { data: { results } } = await api.get<{ results: UserAPIProps[] }>(queryURL);
 
-  console.log(results);
-  
   return results.map(transformUser);
 };
 
