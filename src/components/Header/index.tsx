@@ -16,12 +16,7 @@ export default function Header() {
       <AppBar position="static">
         <Toolbar>
           <BiotechIcon fontSize="large" />
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>Acme Corp</Typography>
-            <div>
-              <IconButton size="large" >
-                <AccountCircle />
-              </IconButton>              
-            </div>
+          <Typography variant="h6" component="div">Acme Corp</Typography>
         </Toolbar>
       </AppBar>
     </Box>

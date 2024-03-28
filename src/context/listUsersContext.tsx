@@ -1,27 +1,32 @@
-import { createContext, useState, useContext, useEffect, ReactNode } from "react";
+import {
+  createContext,
+  useState,
+  useContext,
+  useEffect,
+  ReactNode,
+} from "react";
 
 import { UsersDataProps } from "../services/types";
 import { getUsersFromAPI } from "../services/api";
 
 interface ListUsersContextProps {
   usersData: UsersDataProps[];
-  openModal: boolean;
   page: number;
   setPage: (param: number) => void;
-  handleModal: (param: boolean) => void;
+  selectedUser: UsersDataProps | null;
+  setSelectedUser: (param: UsersDataProps | null) => void;
 }
 
 interface ListUsersProviderProps {
   children: ReactNode;
 }
 
-
 export const ListUsersContext = createContext({} as ListUsersContextProps);
 
 export function ListUsersProvider({ children }: ListUsersProviderProps) {
   const [usersData, setUsersData] = useState<UsersDataProps[]>([]);
-  const [openModal, setOpenModal] = useState<boolean>(false);
   const [page, setPage] = useState(0);
+  const [selectedUser, setSelectedUser] = useState<UsersDataProps | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -36,13 +41,15 @@ export function ListUsersProvider({ children }: ListUsersProviderProps) {
     fetchData();
   }, []);
 
-  function handleModal(param: boolean) {
-    setOpenModal(param);
-  }
-
   return (
     <ListUsersContext.Provider
-      value={{ usersData, page, setPage, openModal, handleModal }}
+      value={{
+        usersData,
+        page,
+        setPage,
+        selectedUser,
+        setSelectedUser,
+      }}
     >
       {children}
     </ListUsersContext.Provider>
