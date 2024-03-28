@@ -1,22 +1,18 @@
 import axios from "axios";
-import mockData from "./mock.json";
-import { UsersDataProps } from "./types";
+import { UserAPIProps, UsersDataProps } from "./types";
 import { transformUser } from "./utils";
 
 const api = axios.create({
   baseURL: "https://randomuser.me/api/",
 });
 
-export const getUsersFromAPI = async (): Promise<any> => {
-  // const { data } = await api.get('');
-  // seed: Cgen
-  // return data;
+export const getUsersFromAPI = async (): Promise<UsersDataProps[]> => {
+  const seed = 'Cgen';
+  const { data: { results } } = await api.get<{ results: UserAPIProps[] }>(`/?seed=${seed}&results=25`);
 
-  const trasnformed = await mockData.results.map(transformUser);
-
-  console.log(trasnformed);
+  console.log(results);
   
-  return trasnformed;
+  return results.map(transformUser);
 };
 
 export default api;
