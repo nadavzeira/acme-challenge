@@ -83,13 +83,3 @@ export interface UserAPIProps {
   };
   nat: string;
 }
-
-export interface ListUsersContextProps {
-  usersData: UsersDataProps[];
-  openModal: boolean;
-  handleModal: (param: boolean) => void;
-}
-
-export interface ListUsersProviderProps {
-  children: ReactNode;
-}
