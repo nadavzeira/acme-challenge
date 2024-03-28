@@ -1,0 +1,113 @@
+{
+  "results": [
+    {
+      "gender": "female",
+      "name": { "title": "Miss", "first": "Alejandra", "last": "Morales" },
+      "location": {
+        "street": { "number": 9535, "name": "Calle del Prado" },
+        "city": "Castellón de la Plana",
+        "state": "Cantabria",
+        "country": "Spain",
+        "postcode": 26958,
+        "coordinates": { "latitude": "-30.9915", "longitude": "84.7924" },
+        "timezone": {
+          "offset": "+11:00",
+          "description": "Magadan, Solomon Islands, New Caledonia"
+        }
+      },
+      "email": "alejandra.morales@example.com",
+      "login": {
+        "uuid": "091ffd24-3b04-4e67-a9f4-d0667036d9cb",
+        "username": "crazyswan152",
+        "password": "xxxxx1",
+        "salt": "Tcs4zBQM",
+        "md5": "fb381c36ae8da523a39bb442e9d001b3",
+        "sha1": "551f60c6af5fc9c54a814d3a0020d2a805d37bf2",
+        "sha256": "463598cf16a68dba554e8ab446133a3177b24a692d59df62bc1e0ea2f8130431"
+      },
+      "dob": { "date": "1966-12-21T22:24:15.256Z", "age": 57 },
+      "registered": { "date": "2010-06-06T08:41:30.896Z", "age": 13 },
+      "phone": "901-386-778",
+      "cell": "696-988-029",
+      "id": { "name": "DNI", "value": "79898941-V" },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/women/43.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/women/43.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/43.jpg"
+      },
+      "nat": "ES"
+    },
+    {
+      "gender": "female",
+      "name": { "title": "Mrs", "first": "Patricia", "last": "Hernández" },
+      "location": {
+        "street": { "number": 8307, "name": "Calle del Pez" },
+        "city": "Castellón de la Plana",
+        "state": "Comunidad de Madrid",
+        "country": "Spain",
+        "postcode": 28429,
+        "coordinates": { "latitude": "57.7323", "longitude": "144.7145" },
+        "timezone": { "offset": "+3:30", "description": "Tehran" }
+      },
+      "email": "patricia.hernandez@example.com",
+      "login": {
+        "uuid": "afdc03fc-feed-4f72-85dc-679dd283ac81",
+        "username": "beautifulbutterfly230",
+        "password": "lifetime",
+        "salt": "PVHgEpqz",
+        "md5": "e12933d213dc7915cb4566258172cf33",
+        "sha1": "ea1c939d26c7e1deb000330110c13216366ed33c",
+        "sha256": "90a7ca1078f2e9006a885c6832bbdc312ea590f9839ee459e3e33c4adc9b8f15"
+      },
+      "dob": { "date": "1973-04-10T00:58:20.079Z", "age": 50 },
+      "registered": { "date": "2009-10-19T14:03:15.290Z", "age": 14 },
+      "phone": "943-260-202",
+      "cell": "678-547-950",
+      "id": { "name": "DNI", "value": "42305416-J" },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/women/36.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/women/36.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/36.jpg"
+      },
+      "nat": "ES"
+    },
+    {
+      "gender": "female",
+      "name": { "title": "Ms", "first": "Mina", "last": "Ivančević" },
+      "location": {
+        "street": { "number": 6688, "name": "Nikole Tesle" },
+        "city": "Tutin",
+        "state": "Moravica",
+        "country": "Serbia",
+        "postcode": 27123,
+        "coordinates": { "latitude": "-0.4428", "longitude": "-87.7678" },
+        "timezone": {
+          "offset": "+8:00",
+          "description": "Beijing, Perth, Singapore, Hong Kong"
+        }
+      },
+      "email": "mina.ivancevic@example.com",
+      "login": {
+        "uuid": "46801286-6763-4a13-83ce-86bf91636187",
+        "username": "smalllion247",
+        "password": "think",
+        "salt": "9XNFU60I",
+        "md5": "35ebf7f2493f7d61433e7bf1ecc90ca2",
+        "sha1": "0d5426a3e0bebbbe844bc890b75f7bf8383f37f4",
+        "sha256": "03ffabcd597c75ac488d0d0162b4c65a263e5b21668431652e5db8d409db6457"
+      },
+      "dob": { "date": "1956-12-12T23:53:57.256Z", "age": 67 },
+      "registered": { "date": "2021-12-26T21:08:18.920Z", "age": 2 },
+      "phone": "032-2549-935",
+      "cell": "067-7549-661",
+      "id": { "name": "SID", "value": "327689107" },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/women/87.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/women/87.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/87.jpg"
+      },
+      "nat": "RS"
+    }
+  ],
+  "info": { "seed": "Cgen", "results": 3, "page": 1, "version": "1.4" }
+}
