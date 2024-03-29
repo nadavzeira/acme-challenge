@@ -1,6 +1,6 @@
 import { MenuItem, TextField } from "@mui/material";
 import { ChangeEvent } from "react";
-import { useFiltersContext } from "../../contexts/FiltersContext";
+import { useFiltersContext } from "../../contexts/filtersContext";
 import { useListUsersContext } from "../../contexts/listUsersContext";
 
 export default function UserFilters() {

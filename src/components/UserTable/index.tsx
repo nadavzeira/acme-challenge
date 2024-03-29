@@ -9,7 +9,7 @@ import {
   TablePagination,
 } from "@mui/material";
 import { useListUsersContext } from "../../contexts/listUsersContext";
-import { useFiltersContext } from "../../contexts/FiltersContext";
+import { useFiltersContext } from "../../contexts/filtersContext";
 
 export default function UserTable() {
   const [rowsPerPage, setRowsPerPage] = useState(10);
