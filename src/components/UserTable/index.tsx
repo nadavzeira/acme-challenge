@@ -16,8 +16,8 @@ export default function UserTable() {
   const { usersData, page, setPage, setSelectedUser } = useListUsersContext();
   const { searchQuery } = useFiltersContext();
 
-  const filteredUsersData = usersData.filter((user) =>
-    `${user.name.first}${user.name.last}`.toLowerCase().includes(searchQuery.toLowerCase())
+  const filteredUsersData = usersData.filter(({ name }) =>
+    `${name.first}${name.last}`.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   const currentPageUsers = filteredUsersData.slice(
@@ -30,6 +30,7 @@ export default function UserTable() {
     idx: number
   ) => {
     event.preventDefault();
+    
     const scientist = filteredUsersData[idx];
     setSelectedUser(scientist);
   };
