@@ -11,8 +11,6 @@ import { getUsersFromAPI } from "../services/api";
 
 interface ListUsersContextProps {
   usersData: UsersDataProps[];
-  selectedUser: UsersDataProps | null;
-  setSelectedUser: (param: UsersDataProps | null) => void;
 }
 
 interface ListUsersProviderProps {
@@ -23,7 +21,6 @@ const ListUsersContext = createContext({} as ListUsersContextProps);
 
 export function ListUsersProvider({ children }: ListUsersProviderProps) {
   const [usersData, setUsersData] = useState<UsersDataProps[]>([]);
-  const [selectedUser, setSelectedUser] = useState<UsersDataProps | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -42,8 +39,6 @@ export function ListUsersProvider({ children }: ListUsersProviderProps) {
     <ListUsersContext.Provider
       value={{
         usersData,
-        selectedUser,
-        setSelectedUser,
       }}
     >
       {children}

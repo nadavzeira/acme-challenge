@@ -11,6 +11,7 @@ export interface UsersDataProps {
   email: string;
   gender: string;
   login: {
+    id: string;
     username: string;
   };
   dob: {

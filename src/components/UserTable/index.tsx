@@ -10,12 +10,14 @@ import {
 } from "@mui/material";
 import { useListUsersContext } from "../../contexts/listUsersContext";
 import { useFiltersContext } from "../../contexts/filtersContext";
+import { useHistory } from "react-router-dom";
 
 export default function UserTable() {
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [page, setPage] = useState(0);
-  const { usersData, setSelectedUser } = useListUsersContext();
+  const { usersData } = useListUsersContext();
   const { searchQuery, genderFilter, nationalityFilter } = useFiltersContext();
+  const history = useHistory();
 
   // Filter users based on search query, gender, and nationality
   const filteredUsersData = usersData.filter(
@@ -37,8 +39,10 @@ export default function UserTable() {
     idx: number
   ) => {
     event.preventDefault();
+
     const scientist = filteredUsersData[idx];
-    setSelectedUser(scientist);
+    
+    history.push(`/user/${scientist.login.id}`);
   };
 
   const handlePageChange = (_: unknown, newPage: number) => {

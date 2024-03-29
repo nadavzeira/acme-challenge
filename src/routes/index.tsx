@@ -1,15 +1,13 @@
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 
 import UserList from "../components/UserList";
-// import UserModal from '../components/UserModal'
+import UserModal from "../components/UserModal";
 
-const Routes = () => {
+export default function Routes() {
   return (
     <BrowserRouter>
       <UserList />
-      <Switch>{/* <Route path="/:id" component={UserModal}/> */}</Switch>
+      <Route path="/user/:id" component={UserModal} />
     </BrowserRouter>
   );
-};
-
-export default Routes;
+}

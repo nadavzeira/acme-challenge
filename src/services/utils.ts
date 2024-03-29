@@ -34,6 +34,7 @@ export const transformUser = (user: UserAPIProps): UsersDataProps => {
     email: email,
     gender: gender,
     login: {
+      id: login.uuid,
       username: login.username,
     },
     dob: {
