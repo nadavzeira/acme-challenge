@@ -11,8 +11,6 @@ import { getUsersFromAPI } from "../services/api";
 
 interface ListUsersContextProps {
   usersData: UsersDataProps[];
-  page: number;
-  setPage: (param: number) => void;
   selectedUser: UsersDataProps | null;
   setSelectedUser: (param: UsersDataProps | null) => void;
 }
@@ -25,13 +23,12 @@ const ListUsersContext = createContext({} as ListUsersContextProps);
 
 export function ListUsersProvider({ children }: ListUsersProviderProps) {
   const [usersData, setUsersData] = useState<UsersDataProps[]>([]);
-  const [page, setPage] = useState(0);
   const [selectedUser, setSelectedUser] = useState<UsersDataProps | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const results = await getUsersFromAPI(page);
+        const results = await getUsersFromAPI();
         setUsersData(results);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -45,8 +42,6 @@ export function ListUsersProvider({ children }: ListUsersProviderProps) {
     <ListUsersContext.Provider
       value={{
         usersData,
-        page,
-        setPage,
         selectedUser,
         setSelectedUser,
       }}

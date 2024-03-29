@@ -13,7 +13,8 @@ import { useFiltersContext } from "../../contexts/FiltersContext";
 
 export default function UserTable() {
   const [rowsPerPage, setRowsPerPage] = useState(10);
-  const { usersData, page, setPage, setSelectedUser } = useListUsersContext();
+  const [page, setPage] = useState(0);
+  const { usersData, setSelectedUser } = useListUsersContext();
   const { searchQuery, genderFilter, nationalityFilter } = useFiltersContext();
 
   // Filter users based on search query, gender, and nationality
