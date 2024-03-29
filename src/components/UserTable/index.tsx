@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Table,
   TableHead,
@@ -29,6 +29,10 @@ export default function UserTable() {
       (!nationalityFilter.length || nationalityFilter.includes(nat))
   );
 
+  useEffect(() => {
+    setPage(0);
+  }, [searchQuery, genderFilter, nationalityFilter, rowsPerPage]);
+
   const currentPageUsers = filteredUsersData.slice(
     page * rowsPerPage,
     page * rowsPerPage + rowsPerPage
@@ -41,7 +45,7 @@ export default function UserTable() {
     event.preventDefault();
 
     const scientist = filteredUsersData[idx];
-    
+
     history.push(`/user/${scientist.login.id}`);
   };
 
@@ -91,12 +95,12 @@ export default function UserTable() {
         </Table>
       </TableContainer>
       <TablePagination
-        rowsPerPageOptions={[5, 10, 15]}
+        rowsPerPageOptions={[5, 10, 15, 25, 30]}
         component="div"
         count={filteredUsersData.length}
-        rowsPerPage={rowsPerPage}
         page={page}
         onPageChange={handlePageChange}
+        rowsPerPage={rowsPerPage}
         onRowsPerPageChange={handleRowPerPageChange}
       />
     </>

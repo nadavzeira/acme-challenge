@@ -36,11 +36,7 @@ export function ListUsersProvider({ children }: ListUsersProviderProps) {
   }, []);
 
   return (
-    <ListUsersContext.Provider
-      value={{
-        usersData,
-      }}
-    >
+    <ListUsersContext.Provider value={{ usersData }}>
       {children}
     </ListUsersContext.Provider>
   );
