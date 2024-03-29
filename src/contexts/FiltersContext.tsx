@@ -5,8 +5,8 @@ interface FiltersContextProps {
   setSearchQuery: (query: string) => void;
   genderFilter: string;
   setGenderFilter: (gender: string) => void;
-  nationalityFilter: string;
-  setNationalityFilter: (nationality: string) => void;
+  nationalityFilter: string[];
+  setNationalityFilter: (nationality: string[]) => void;
 }
 
 const FiltersContext = createContext({} as FiltersContextProps);
@@ -27,8 +27,8 @@ interface FiltersProviderProps {
 
 export function FiltersProvider({ children }: FiltersProviderProps) {
   const [searchQuery, setSearchQuery] = useState<string>("");
-  const [genderFilter, setGenderFilter] = useState<string>("all");
-  const [nationalityFilter, setNationalityFilter] = useState<string>("all");
+  const [genderFilter, setGenderFilter] = useState<string>("All");
+  const [nationalityFilter, setNationalityFilter] = useState<string[]>([]);
 
   return (
     <FiltersContext.Provider

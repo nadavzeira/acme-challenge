@@ -22,8 +22,8 @@ export default function UserTable() {
       `${name.first}${name.last}`
         .toLowerCase()
         .includes(searchQuery.toLowerCase()) &&
-      (genderFilter === "all" || gender === genderFilter) &&
-      (nationalityFilter === "all" || nat === nationalityFilter)
+      (genderFilter === "All" || gender === genderFilter) &&
+      (!nationalityFilter.length || nationalityFilter.includes(nat))
   );
 
   const currentPageUsers = filteredUsersData.slice(

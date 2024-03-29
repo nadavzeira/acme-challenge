@@ -9,12 +9,12 @@ export default function UserFilters() {
 
   const nationalities = Array.from(new Set(usersData.map(({ nat }) => nat)));
 
-  const handleGenderChange = (event: ChangeEvent<{ value: string }>) => {
-    setGenderFilter(event.target.value);
+  const handleGenderChange = (event: ChangeEvent<{value: unknown}>) => {
+    setGenderFilter(event.target.value as string);
   };
 
-  const handleNationalityChange = (event: ChangeEvent<{ value: string }>) => {
-    setNationalityFilter(event.target.value);
+  const handleNationalityChange = (event: ChangeEvent<{value: unknown}>) => {
+    setNationalityFilter(event.target.value as string[]);
   };
 
   return (
@@ -23,12 +23,12 @@ export default function UserFilters() {
         select
         label="Gender"
         variant="outlined"
-        defaultValue="all"
+        defaultValue="All"
         fullWidth
         style={{ marginRight: "10px" }}
         onChange={handleGenderChange}
       >
-        <MenuItem value="all">All</MenuItem>
+        <MenuItem value="All">All</MenuItem>
         <MenuItem value="male">Male</MenuItem>
         <MenuItem value="female">Female</MenuItem>
       </TextField>
@@ -36,12 +36,15 @@ export default function UserFilters() {
         select
         label="Nationality"
         variant="outlined"
-        defaultValue="all"
+        defaultValue={[]}
         fullWidth
+        placeholder="All"
         onChange={handleNationalityChange}
+        SelectProps={{
+          multiple: true,
+        }}
       >
-        <MenuItem value="all">All</MenuItem>
-        {nationalities.map(nationality => (
+        {nationalities.map((nationality) => (
           <MenuItem key={nationality} value={nationality}>
             {nationality}
           </MenuItem>
