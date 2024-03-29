@@ -7,13 +7,13 @@ import GlobalStyles from "./styles/global";
 
 export function App() {
   return (
-    <FiltersProvider>
-      <ListUsersProvider>
+    <ListUsersProvider>
+      <FiltersProvider>
         <GlobalStyles />
         <Header />
         <Routes />
-      </ListUsersProvider>
-    </FiltersProvider>
+      </FiltersProvider>
+    </ListUsersProvider>
   );
 }
 

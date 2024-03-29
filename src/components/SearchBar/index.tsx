@@ -1,4 +1,4 @@
-import { TextField, Typography } from "@mui/material";
+import { Box, TextField } from "@mui/material";
 import React, { useEffect, useRef } from "react";
 import _ from "lodash";
 import { useFiltersContext } from "../../contexts/FiltersContext";
@@ -8,7 +8,6 @@ export default function SearchBar() {
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    // Focus on the input element when the component mounts
     inputRef.current?.focus();
 
     const handleKeyPress = (event: KeyboardEvent) => {
@@ -35,16 +34,12 @@ export default function SearchBar() {
   };
 
   return (
-    <>
-      <TextField
-        inputRef={inputRef}
-        label="Search by name"
-        variant="outlined"
-        onChange={handleChange}
-      />
-      <Typography variant="body2" color="textSecondary">
-        Type '/' to focus on the search bar
-      </Typography>
-    </>
+    <TextField
+      inputRef={inputRef}
+      label="Search by name (Type '/' to focus on the search bar)"
+      variant="outlined"
+      onChange={handleChange}
+      fullWidth
+    />
   );
 }

@@ -14,10 +14,16 @@ import { useFiltersContext } from "../../contexts/FiltersContext";
 export default function UserTable() {
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const { usersData, page, setPage, setSelectedUser } = useListUsersContext();
-  const { searchQuery } = useFiltersContext();
+  const { searchQuery, genderFilter, nationalityFilter } = useFiltersContext();
 
-  const filteredUsersData = usersData.filter(({ name }) =>
-    `${name.first}${name.last}`.toLowerCase().includes(searchQuery.toLowerCase())
+  // Filter users based on search query, gender, and nationality
+  const filteredUsersData = usersData.filter(
+    ({ name, gender, nat }) =>
+      `${name.first}${name.last}`
+        .toLowerCase()
+        .includes(searchQuery.toLowerCase()) &&
+      (genderFilter === "all" || gender === genderFilter) &&
+      (nationalityFilter === "all" || nat === nationalityFilter)
   );
 
   const currentPageUsers = filteredUsersData.slice(
@@ -30,7 +36,6 @@ export default function UserTable() {
     idx: number
   ) => {
     event.preventDefault();
-    
     const scientist = filteredUsersData[idx];
     setSelectedUser(scientist);
   };
@@ -48,7 +53,7 @@ export default function UserTable() {
 
   return (
     <>
-      <TableContainer style={{ height: "75vh", overflowY: "scroll" }}>
+      <TableContainer style={{ height: "100%", overflowY: "auto" }}>
         <Table>
           <TableHead style={{ backgroundColor: "#a5a5a5" }}>
             <TableRow>
