@@ -6,7 +6,7 @@ import {
   DialogActions,
   Button,
 } from "@mui/material";
-import { useListUsersContext } from "../../context/listUsersContext";
+import { useListUsersContext } from "../../contexts/listUsersContext";
 
 export default function UserModal() {
   const { selectedUser, setSelectedUser } = useListUsersContext();

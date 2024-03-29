@@ -8,14 +8,19 @@ import {
   TableContainer,
   TablePagination,
 } from "@mui/material";
-import { useListUsersContext } from "../../context/listUsersContext";
+import { useListUsersContext } from "../../contexts/listUsersContext";
+import { useFiltersContext } from "../../contexts/FiltersContext";
 
 export default function UserTable() {
   const [rowsPerPage, setRowsPerPage] = useState(10);
-
   const { usersData, page, setPage, setSelectedUser } = useListUsersContext();
+  const { searchQuery } = useFiltersContext();
 
-  const currentPageUsers = usersData.slice(
+  const filteredUsersData = usersData.filter((user) =>
+    `${user.name.first}${user.name.last}`.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  const currentPageUsers = filteredUsersData.slice(
     page * rowsPerPage,
     page * rowsPerPage + rowsPerPage
   );
@@ -25,7 +30,7 @@ export default function UserTable() {
     idx: number
   ) => {
     event.preventDefault();
-    const scientist = usersData[idx];
+    const scientist = filteredUsersData[idx];
     setSelectedUser(scientist);
   };
 
@@ -77,7 +82,7 @@ export default function UserTable() {
       <TablePagination
         rowsPerPageOptions={[5, 10, 15]}
         component="div"
-        count={usersData.length}
+        count={filteredUsersData.length}
         rowsPerPage={rowsPerPage}
         page={page}
         onPageChange={handlePageChange}

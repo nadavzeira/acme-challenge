@@ -21,7 +21,7 @@ interface ListUsersProviderProps {
   children: ReactNode;
 }
 
-export const ListUsersContext = createContext({} as ListUsersContextProps);
+const ListUsersContext = createContext({} as ListUsersContextProps);
 
 export function ListUsersProvider({ children }: ListUsersProviderProps) {
   const [usersData, setUsersData] = useState<UsersDataProps[]>([]);
