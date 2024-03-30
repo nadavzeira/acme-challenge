@@ -7,13 +7,15 @@ export default function DropDowns() {
   const { setGenderFilter, setNationalityFilter } = useFiltersContext();
   const { scientistsData } = useScientistsListContext();
 
-  const nationalities = Array.from(new Set(scientistsData.map(({ nat }) => nat)));
+  const nationalities = Array.from(
+    new Set(scientistsData.map(({ nat }) => nat))
+  );
 
-  const handleGenderChange = (event: ChangeEvent<{value: unknown}>) => {
+  const handleGenderChange = (event: ChangeEvent<{ value: unknown }>) => {
     setGenderFilter(event.target.value as string);
   };
 
-  const handleNationalityChange = (event: ChangeEvent<{value: unknown}>) => {
+  const handleNationalityChange = (event: ChangeEvent<{ value: unknown }>) => {
     setNationalityFilter(event.target.value as string[]);
   };
 

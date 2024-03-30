@@ -1,17 +1,18 @@
-import axios from "axios";
-import { ScientistAPI, Scientist } from "./types";
-import { transformScientist } from "./utils";
-
-const api = axios.create({
-  baseURL: "https://randomuser.me/api",
-});
+import axios, { AxiosError } from 'axios';
+import { ScientistAPI, Scientist } from './types';
+import { transformScientist } from './utils';
 
 export const getScientistsFromAPI = async (): Promise<Scientist[]> => {
-  const SEED = 'Cgen';
-  const queryURL = `/?results=300&seed=${SEED}}`;
-  const { data: { results } } = await api.get<{ results: ScientistAPI[] }>(queryURL);
+  try {
+    const queryURL = `https://randomuser.me/api/?results=300&seed=Cgen`;
+    const { data: { results } } = await axios.get<{ results: ScientistAPI[] }>(queryURL);
 
-  return results.map(transformScientist);
+    return results.map(transformScientist);
+  } catch (error) {
+    const axiosError = error as AxiosError;
+
+    return Promise.reject({
+      message: axiosError.response?.data || "Uh oh, something has gone wrong. Try again in another time."
+    });
+  }
 };
-
-export default api;
