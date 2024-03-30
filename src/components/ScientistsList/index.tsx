@@ -1,9 +1,9 @@
 import { Container } from "@mui/material";
-import UserModal from "./UserModal";
-import UserTable from "./UserTable";
+import ScientistModal from "./ScientistModal";
+import ScientistsTable from "./ScientistsTable";
 import Filters from "./Filters";
 
-export default function UserList() {
+export default function ScientistsList() {
   return (
     <Container
       maxWidth="md"
@@ -16,8 +16,8 @@ export default function UserList() {
       }}
     >
       <Filters />
-      <UserTable />
-      <UserModal />
+      <ScientistsTable />
+      <ScientistModal />
     </Container>
   );
 }
