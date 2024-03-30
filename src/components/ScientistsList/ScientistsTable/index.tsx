@@ -21,12 +21,15 @@ export default function ScientistsTable() {
 
   // Filter scientists based on search query, gender, and nationality
   const filteredScientistsData = scientistsData.filter(
-    ({ name, gender, nat }) =>
-      `${name.first}${name.last}`
-        .toLowerCase()
-        .includes(searchQuery.toLowerCase()) &&
-      (genderFilter === "All" || gender === genderFilter) &&
-      (!nationalityFilter.length || nationalityFilter.includes(nat))
+    ({ gender, nat, name }) => {
+      const isGender = (genderFilter === "All" || gender === genderFilter);
+      const isNat = (!nationalityFilter.length || nationalityFilter.includes(nat));
+      const isSearch = `${name.first}${name.last}`.toLowerCase().includes(searchQuery.trim().toLowerCase()); 
+      
+      return (
+        isGender && isNat && isSearch
+      )
+    }
   );
 
   useEffect(() => {
@@ -46,7 +49,7 @@ export default function ScientistsTable() {
 
     const scientist = filteredScientistsData[idx];
 
-    history.push(`/scientists/${scientist.login.id}`);
+    history.push(`/${scientist.login.id}`);
   };
 
   const handlePageChange = (_: unknown, newPage: number) => {

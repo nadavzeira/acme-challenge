@@ -1,13 +1,15 @@
 import { ScientistAPI, Scientist } from "./types";
-import { format , parseISO} from 'date-fns';
-import ptBR from 'date-fns/locale/pt-BR';
-
-function formatDate(date: string){
-  const formattedDate = format(parseISO(date), 'dd/MM/yyyy', {locale: ptBR});
-  return formattedDate;
-}
+import { format, parseISO } from "date-fns";
+import he from "date-fns/locale/he";
 
 export const transformScientist = (scientists: ScientistAPI): Scientist => {
+  function formatDate(date: string) {
+    const formattedDate = format(parseISO(date), "dd/MM/yyyy", {
+      locale: he,
+    });
+    return formattedDate;
+  }
+
   const {
     name,
     location,
@@ -20,7 +22,7 @@ export const transformScientist = (scientists: ScientistAPI): Scientist => {
     nat,
     picture,
   } = scientists;
-  
+
   return {
     name: {
       first: name.first,

@@ -7,7 +7,7 @@ export default function Routes() {
   return (
     <BrowserRouter>
       <ScientistsList />
-      <Route path="/scientists/:id" component={ScientistModal} />
+      <Route path="/:id" component={ScientistModal} />
     </BrowserRouter>
   );
 }
