@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { getScientistsFromAPI } from './api';
+import { getScientistsFromAPI } from './api_v1';
 
 // Mocking Axios
 jest.mock('axios');

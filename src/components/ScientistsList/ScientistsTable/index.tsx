@@ -19,8 +19,10 @@ export default function ScientistsTable() {
   const { searchQuery, genderFilter, nationalityFilter } = useFiltersContext();
   const history = useHistory();
 
-  // Filter scientists based on search query, gender, and nationality
-  const filteredScientistsData = scientistsData.filter(
+  // Filter scientists based on search query, gender, and nationality, two versions available:
+
+  // v1 matches the v1 of the api service (api_v1.ts)
+  const filteredScientistsData_v1 = scientistsData.filter(
     ({ gender, nat, name }) => {
       const isGender = (genderFilter === "All" || gender === genderFilter);
       const isNat = (!nationalityFilter.length || nationalityFilter.includes(nat));
@@ -32,11 +34,18 @@ export default function ScientistsTable() {
     }
   );
 
+  // v2 matches the v2 of the api service (api_v2.ts)
+  // const filteredScientistsData_v2 = scientistsData.filter(
+  //   ({ name }) => (
+  //     `${name.first}${name.last}`.toLowerCase().includes(searchQuery.trim().toLowerCase())
+  //   )
+  // );
+
   useEffect(() => {
     setPage(0);
   }, [searchQuery, genderFilter, nationalityFilter, rowsPerPage]);
 
-  const currentPageScientists = filteredScientistsData.slice(
+  const currentPageScientists = filteredScientistsData_v1.slice(
     page * rowsPerPage,
     page * rowsPerPage + rowsPerPage
   );
@@ -47,7 +56,7 @@ export default function ScientistsTable() {
   ) => {
     event.preventDefault();
 
-    const scientist = filteredScientistsData[idx];
+    const scientist = filteredScientistsData_v1[idx];
 
     history.push(`/${scientist.login.id}`);
   };
@@ -100,7 +109,7 @@ export default function ScientistsTable() {
       <TablePagination
         rowsPerPageOptions={[5, 10, 15, 25, 30]}
         component="div"
-        count={filteredScientistsData.length}
+        count={filteredScientistsData_v1.length}
         page={page}
         onPageChange={handlePageChange}
         rowsPerPage={rowsPerPage}
