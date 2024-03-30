@@ -1,13 +1,13 @@
 import { MenuItem, TextField } from "@mui/material";
 import { ChangeEvent } from "react";
 import { useFiltersContext } from "../../../../contexts/filtersContext";
-import { useListUsersContext } from "../../../../contexts/listUsersContext";
+import { useScientistsListContext } from "../../../../contexts/scientistsListContext";
 
 export default function DropDowns() {
   const { setGenderFilter, setNationalityFilter } = useFiltersContext();
-  const { usersData } = useListUsersContext();
+  const { scientistsData } = useScientistsListContext();
 
-  const nationalities = Array.from(new Set(usersData.map(({ nat }) => nat)));
+  const nationalities = Array.from(new Set(scientistsData.map(({ nat }) => nat)));
 
   const handleGenderChange = (event: ChangeEvent<{value: unknown}>) => {
     setGenderFilter(event.target.value as string);

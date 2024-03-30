@@ -1,13 +1,13 @@
 import { Route, BrowserRouter } from "react-router-dom";
 
-import UserList from "../components/UserList";
-import UserModal from "../components/UserList/UserModal";
+import ScientistsList from "../components/ScientistsList";
+import ScientistModal from "../components/ScientistsList/ScientistModal";
 
 export default function Routes() {
   return (
     <BrowserRouter>
-      <UserList />
-      <Route path="/user/:id" component={UserModal} />
+      <ScientistsList />
+      <Route path="/scientists/:id" component={ScientistModal} />
     </BrowserRouter>
   );
 }

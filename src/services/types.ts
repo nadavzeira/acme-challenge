@@ -1,4 +1,4 @@
-export interface UsersDataProps {
+export interface Scientist {
   name: {
     first: string;
     last: string;
@@ -26,7 +26,7 @@ export interface UsersDataProps {
   };
 }
 
-export interface UserAPIProps {
+export interface ScientistAPI {
   gender: string;
   name: {
     title: string;

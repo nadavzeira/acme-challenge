@@ -1,4 +1,4 @@
-import { UserAPIProps, UsersDataProps } from "./types";
+import { ScientistAPI, Scientist } from "./types";
 import { format , parseISO} from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
 
@@ -7,7 +7,7 @@ function formatDate(date: string){
   return formattedDate;
 }
 
-export const transformUser = (user: UserAPIProps): UsersDataProps => {
+export const transformScientist = (scientists: ScientistAPI): Scientist => {
   const {
     name,
     location,
@@ -19,7 +19,7 @@ export const transformUser = (user: UserAPIProps): UsersDataProps => {
     cell,
     nat,
     picture,
-  } = user;
+  } = scientists;
   
   return {
     name: {

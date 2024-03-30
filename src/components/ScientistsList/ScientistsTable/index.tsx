@@ -8,19 +8,19 @@ import {
   TableContainer,
   TablePagination,
 } from "@mui/material";
-import { useListUsersContext } from "../../../contexts/listUsersContext";
+import { useScientistsListContext } from "../../../contexts/scientistsListContext";
 import { useFiltersContext } from "../../../contexts/filtersContext";
 import { useHistory } from "react-router-dom";
 
-export default function UserTable() {
+export default function ScientistsTable() {
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [page, setPage] = useState(0);
-  const { usersData } = useListUsersContext();
+  const { scientistsData } = useScientistsListContext();
   const { searchQuery, genderFilter, nationalityFilter } = useFiltersContext();
   const history = useHistory();
 
-  // Filter users based on search query, gender, and nationality
-  const filteredUsersData = usersData.filter(
+  // Filter scientists based on search query, gender, and nationality
+  const filteredScientistsData = scientistsData.filter(
     ({ name, gender, nat }) =>
       `${name.first}${name.last}`
         .toLowerCase()
@@ -33,7 +33,7 @@ export default function UserTable() {
     setPage(0);
   }, [searchQuery, genderFilter, nationalityFilter, rowsPerPage]);
 
-  const currentPageUsers = filteredUsersData.slice(
+  const currentPageScientists = filteredScientistsData.slice(
     page * rowsPerPage,
     page * rowsPerPage + rowsPerPage
   );
@@ -44,9 +44,9 @@ export default function UserTable() {
   ) => {
     event.preventDefault();
 
-    const scientist = filteredUsersData[idx];
+    const scientist = filteredScientistsData[idx];
 
-    history.push(`/user/${scientist.login.id}`);
+    history.push(`/scientists/${scientist.login.id}`);
   };
 
   const handlePageChange = (_: unknown, newPage: number) => {
@@ -78,7 +78,7 @@ export default function UserTable() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {currentPageUsers.map(({ name, gender, dob }, idx) => (
+            {currentPageScientists.map(({ name, gender, dob }, idx) => (
               <TableRow
                 key={idx}
                 onClick={(e) => handleRowClick(e, idx)}
@@ -97,7 +97,7 @@ export default function UserTable() {
       <TablePagination
         rowsPerPageOptions={[5, 10, 15, 25, 30]}
         component="div"
-        count={filteredUsersData.length}
+        count={filteredScientistsData.length}
         page={page}
         onPageChange={handlePageChange}
         rowsPerPage={rowsPerPage}
