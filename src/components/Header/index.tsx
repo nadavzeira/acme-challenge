@@ -11,7 +11,7 @@ export default function Header() {
         <Toolbar>
           <BiotechIcon fontSize="large" />
           <Typography variant="h6" component="div">
-            Acme Corp
+            Acme Corp.
           </Typography>
         </Toolbar>
       </AppBar>
