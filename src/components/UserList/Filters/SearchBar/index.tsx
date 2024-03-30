@@ -1,7 +1,7 @@
-import { Box, TextField } from "@mui/material";
+import { TextField } from "@mui/material";
 import React, { useEffect, useRef } from "react";
 import _ from "lodash";
-import { useFiltersContext } from "../../contexts/filtersContext";
+import { useFiltersContext } from "../../../../contexts/filtersContext";
 
 export default function SearchBar() {
   const { setSearchQuery } = useFiltersContext();

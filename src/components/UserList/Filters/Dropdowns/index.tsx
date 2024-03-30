@@ -1,9 +1,9 @@
 import { MenuItem, TextField } from "@mui/material";
 import { ChangeEvent } from "react";
-import { useFiltersContext } from "../../contexts/filtersContext";
-import { useListUsersContext } from "../../contexts/listUsersContext";
+import { useFiltersContext } from "../../../../contexts/filtersContext";
+import { useListUsersContext } from "../../../../contexts/listUsersContext";
 
-export default function UserFilters() {
+export default function DropDowns() {
   const { setGenderFilter, setNationalityFilter } = useFiltersContext();
   const { usersData } = useListUsersContext();
 

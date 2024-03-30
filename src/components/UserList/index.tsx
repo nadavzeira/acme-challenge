@@ -1,8 +1,7 @@
-import { Box, Container } from "@mui/material";
-import UserModal from "../UserModal";
-import UserTable from "../UserTable";
-import SearchBar from "../SearchBar";
-import UserFilters from "../UserFilters";
+import { Container } from "@mui/material";
+import UserModal from "./UserModal";
+import UserTable from "./UserTable";
+import Filters from "./Filters";
 
 export default function UserList() {
   return (
@@ -16,20 +15,7 @@ export default function UserList() {
         minHeight: "90vh",
       }}
     >
-      <Box
-        display="flex"
-        alignItems="center"
-        justifyContent="space-between"
-        width="100%"
-        marginBottom="16px"
-      >
-        <Box width="50%">
-          <SearchBar />
-        </Box>
-        <Box display="flex" width="30%">
-          <UserFilters />
-        </Box>
-      </Box>
+      <Filters />
       <UserTable />
       <UserModal />
     </Container>

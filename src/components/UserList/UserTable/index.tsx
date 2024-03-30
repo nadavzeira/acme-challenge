@@ -8,8 +8,8 @@ import {
   TableContainer,
   TablePagination,
 } from "@mui/material";
-import { useListUsersContext } from "../../contexts/listUsersContext";
-import { useFiltersContext } from "../../contexts/filtersContext";
+import { useListUsersContext } from "../../../contexts/listUsersContext";
+import { useFiltersContext } from "../../../contexts/filtersContext";
 import { useHistory } from "react-router-dom";
 
 export default function UserTable() {
