@@ -65,5 +65,11 @@ export function ScientistsListProvider({ children }: ScientistsListProviderProps
 }
 
 export const useScientistsListContext = () => {
-  return useContext(ScientistsListContext);
+  const context = useContext(ScientistsListContext);
+
+  if (!context) {
+    throw new Error("useScientistsListContext must be used within a ScientistsListProvider");
+  }
+
+  return context;
 };

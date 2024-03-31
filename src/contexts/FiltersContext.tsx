@@ -11,16 +11,6 @@ interface FiltersContextProps {
 
 const FiltersContext = createContext({} as FiltersContextProps);
 
-export const useFiltersContext = () => {
-  const context = useContext(FiltersContext);
-
-  if (!context) {
-    throw new Error("useFiltersContext must be used within a FiltersProvider");
-  }
-
-  return context;
-};
-
 interface FiltersProviderProps {
   children: ReactNode;
 }
@@ -45,3 +35,13 @@ export function FiltersProvider({ children }: FiltersProviderProps) {
     </FiltersContext.Provider>
   );
 }
+
+export const useFiltersContext = () => {
+  const context = useContext(FiltersContext);
+
+  if (!context) {
+    throw new Error("useFiltersContext must be used within a FiltersProvider");
+  }
+
+  return context;
+};
