@@ -1,23 +1,16 @@
-import { Container } from "@mui/material";
+import StyledContainer from './styles';
 import ScientistModal from "./ScientistModal";
 import ScientistsTable from "./ScientistsTable";
 import Filters from "./Filters";
 
-export default function ScientistsList() {
+const ScientistsList = () => {
   return (
-    <Container
-      maxWidth="md"
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "90vh",
-      }}
-    >
+    <StyledContainer>
       <Filters />
       <ScientistsTable />
       <ScientistModal />
-    </Container>
+    </StyledContainer>
   );
 }
+
+export default ScientistsList;

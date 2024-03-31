@@ -15,7 +15,7 @@ export default function Filters() {
       <Box width="50%">
         <SearchBar />
       </Box>
-      <Box display="flex" width="30%">
+      <Box display="flex" width="30%" marginRight="10px">
         <DropDowns />
       </Box>
     </Box>
