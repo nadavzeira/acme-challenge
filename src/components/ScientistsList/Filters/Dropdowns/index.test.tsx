@@ -23,13 +23,11 @@ describe("DropDowns", () => {
       setNationalityFilter: jest.fn(),
     });
 
-    // Mock the useScientistsListContext hook to provide mock data
     (useScientistsListContext as jest.Mock).mockReturnValue({
       scientistsData: [
         { nat: "USA" },
         { nat: "UK" },
         { nat: "Canada" },
-        // Add more mock scientist data as needed
       ],
     });
   });

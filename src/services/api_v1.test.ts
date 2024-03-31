@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { getScientistsFromAPI } from './api_v1';
 
-// Mocking Axios
 jest.mock('axios');
 
 describe('getScientistsFromAPI', () => {
@@ -81,19 +80,16 @@ describe('getScientistsFromAPI', () => {
   it('handles API error properly', async () => {
     const errorMessage = 'Uh oh, something has gone wrong. Try again in another time.';
 
-    // Mock API call to reject with an error
     (axios.get as jest.MockedFunction<typeof axios.get>).mockRejectedValue(
       new Error(errorMessage)
     );
 
-    // Call the API function and expect a rejected promise
     await expect(getScientistsFromAPI()).rejects.toEqual({
       message: errorMessage,
     });
   });
 
   it('handles empty response data from the API', async () => {
-    // Mock response data to be empty
     const mockResponseData = {
       results: [],
     };
@@ -104,7 +100,6 @@ describe('getScientistsFromAPI', () => {
 
     const scientists = await getScientistsFromAPI();
 
-    // Expect the result to be an empty array
     expect(scientists).toHaveLength(0);
   });
 });
