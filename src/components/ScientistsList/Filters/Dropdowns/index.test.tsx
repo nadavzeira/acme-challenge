@@ -4,7 +4,7 @@ import {
   FiltersProvider,
   useFiltersContext,
 } from "../../../../contexts/filtersContext";
-import { useScientistsListContext } from "../../../../contexts/scientistsListContext";
+import { useScientistsListContext } from "../../../../contexts/scientistsListContext_v1";
 
 jest.mock("../../../../contexts/filtersContext", () => ({
   ...jest.requireActual("../../../../contexts/filtersContext"),

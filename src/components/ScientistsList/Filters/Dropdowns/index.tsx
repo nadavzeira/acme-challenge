@@ -1,7 +1,7 @@
 import { MenuItem, TextField } from "@mui/material";
 import { ChangeEvent } from "react";
 import { useFiltersContext } from "../../../../contexts/filtersContext";
-import { useScientistsListContext } from "../../../../contexts/scientistsListContext";
+import { useScientistsListContext } from "../../../../contexts/scientistsListContext_v1";
 
 export default function DropDowns() {
   const { setGenderFilter, setNationalityFilter } = useFiltersContext();

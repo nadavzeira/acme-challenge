@@ -8,9 +8,10 @@ import {
   TableContainer,
   TablePagination,
 } from "@mui/material";
-import { useScientistsListContext } from "../../../contexts/scientistsListContext";
-import { useFiltersContext } from "../../../contexts/filtersContext";
 import { useHistory } from "react-router-dom";
+import { useFiltersContext } from "../../../contexts/filtersContext";
+import { useScientistsListContext } from "../../../contexts/scientistsListContext_v1";
+// import { useScientistsListContext } from "../../../contexts/scientistsListContext_v2";
 
 export default function ScientistsTable() {
   const [rowsPerPage, setRowsPerPage] = useState(10);
