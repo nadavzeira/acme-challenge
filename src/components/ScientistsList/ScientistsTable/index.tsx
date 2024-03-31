@@ -53,17 +53,17 @@ export default function ScientistsTable() {
 
   return (
     <>
-      <TableContainer style={{ height: "100%", overflowY: "auto" }}>
+      <TableContainer style={{ height: "65%" }}>
         <Table>
           <TableHead style={{ backgroundColor: "#a5a5a5" }}>
             <TableRow>
-              <TableCell style={{ color: "#000", fontWeight: "bold" }}>
+              <TableCell style={{ color: "#000", fontWeight: "bold", width: "50%" }}>
                 Name
               </TableCell>
-              <TableCell style={{ color: "#000", fontWeight: "bold" }}>
+              <TableCell style={{ color: "#000", fontWeight: "bold", width: "20%" }}>
                 Gender
               </TableCell>
-              <TableCell style={{ color: "#000", fontWeight: "bold" }}>
+              <TableCell style={{ color: "#000", fontWeight: "bold", width: "30%" }}>
                 Date of Birth
               </TableCell>
             </TableRow>

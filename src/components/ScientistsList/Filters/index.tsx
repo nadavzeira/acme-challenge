@@ -8,6 +8,7 @@ export default function Filters() {
       display="flex"
       alignItems="center"
       justifyContent="space-between"
+      height="10%"
       width="100%"
       marginBottom="16px"
     >

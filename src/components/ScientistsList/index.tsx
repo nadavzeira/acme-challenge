@@ -12,7 +12,7 @@ export default function ScientistsList() {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        minHeight: "90vh",
+        height: "90vh",
       }}
     >
       <Filters />
