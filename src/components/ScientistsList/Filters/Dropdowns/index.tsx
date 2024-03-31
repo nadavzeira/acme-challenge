@@ -2,6 +2,7 @@ import { MenuItem, TextField } from "@mui/material";
 import { ChangeEvent } from "react";
 import { useFiltersContext } from "../../../../contexts/filtersContext";
 import { useScientistsListContext } from "../../../../contexts/scientistsListContext_v1";
+import { GenderSelect } from "../../../../services/types";
 // import { useScientistsListContext } from "../../../../contexts/scientistsListContext_v2";
 
 export default function DropDowns() {
@@ -13,7 +14,7 @@ export default function DropDowns() {
   );
 
   const handleGenderChange = (event: ChangeEvent<{ value: unknown }>) => {
-    setGenderFilter(event.target.value as string);
+    setGenderFilter(event.target.value as GenderSelect);
   };
 
   const handleNationalityChange = (event: ChangeEvent<{ value: unknown }>) => {

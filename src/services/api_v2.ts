@@ -1,9 +1,9 @@
 import axios, { AxiosError } from "axios";
-import { ScientistAPI, Scientist } from "./types";
+import { ScientistAPI, Scientist, GenderSelect } from "./types";
 import { transformScientist } from "./utils";
 
 // Second version of the API, which utilizies the filtering capabilities, but lacks in data consistency.
-export const getScientistsFromAPI = async (gender: string, nats: string[]): Promise<Scientist[]> => {
+export const getScientistsFromAPI = async (gender: GenderSelect, nats: string[]): Promise<Scientist[]> => {
   try {
     const SEED = "&seed=Cgen"
     const GENDER_FILTER = gender === "All" ? "" : `&gender=${gender.toLowerCase()}`;

@@ -1,10 +1,11 @@
 import { createContext, useState, useContext, ReactNode } from "react";
+import { GenderSelect } from "../services/types";
 
 interface FiltersContextProps {
   searchQuery: string;
   setSearchQuery: (query: string) => void;
-  genderFilter: string;
-  setGenderFilter: (gender: string) => void;
+  genderFilter: GenderSelect;
+  setGenderFilter: (gender: GenderSelect) => void;
   nationalityFilter: string[];
   setNationalityFilter: (nationality: string[]) => void;
 }
@@ -17,7 +18,7 @@ interface FiltersProviderProps {
 
 export function FiltersProvider({ children }: FiltersProviderProps) {
   const [searchQuery, setSearchQuery] = useState<string>("");
-  const [genderFilter, setGenderFilter] = useState<string>("All");
+  const [genderFilter, setGenderFilter] = useState<GenderSelect>("All");
   const [nationalityFilter, setNationalityFilter] = useState<string[]>([]);
 
   return (

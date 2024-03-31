@@ -1,3 +1,6 @@
+export type Gender = "male" | "female";
+export type GenderSelect = Gender | "All";
+
 export interface Scientist {
   name: {
     first: string;
@@ -9,7 +12,7 @@ export interface Scientist {
     country: string;
   };
   email: string;
-  gender: string;
+  gender: Gender;
   login: {
     id: string;
     username: string;
@@ -27,7 +30,7 @@ export interface Scientist {
 }
 
 export interface ScientistAPI {
-  gender: string;
+  gender: Gender;
   name: {
     title: string;
     first: string;
