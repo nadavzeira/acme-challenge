@@ -11,7 +11,28 @@ import {
 import { useHistory } from "react-router-dom";
 import { useFiltersContext } from "../../../contexts/filtersContext";
 import { useScientistsListContext } from "../../../contexts/scientistsListContext_v1";
-// import { useScientistsListContext } from "../../../contexts/scientistsListContext_v2";
+import { styled } from "@mui/system";
+
+// Styled TableContainer with custom scrollbar styles
+const StyledTableContainer = styled(TableContainer)`
+  height: 70%;
+  overflow-y: auto;
+
+  /* Custom scrollbar styles */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #cfe3e4; /* Use the lightest color from the palette */
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #117577; /* Use a darker tone from the palette */
+    border-radius: 10px;
+    border: 3px solid #cfe3e4; /* Use the same light color as the track */
+  }
+`;
 
 export default function ScientistsTable() {
   const [rowsPerPage, setRowsPerPage] = useState(10);
@@ -53,17 +74,17 @@ export default function ScientistsTable() {
 
   return (
     <>
-      <TableContainer style={{ height: "65%" }}>
-        <Table>
-          <TableHead style={{ backgroundColor: "#a5a5a5" }}>
+      <StyledTableContainer>
+        <Table stickyHeader style={{ backgroundColor: "#a0c8c9" }}>
+          <TableHead>
             <TableRow>
-              <TableCell style={{ color: "#000", fontWeight: "bold", width: "50%" }}>
+              <TableCell style={{ backgroundColor: "#70acad", color: "#000", fontWeight: "bold", width: "50%" }}>
                 Name
               </TableCell>
-              <TableCell style={{ color: "#000", fontWeight: "bold", width: "20%" }}>
+              <TableCell style={{ backgroundColor: "#70acad", color: "#000", fontWeight: "bold", width: "20%" }}>
                 Gender
               </TableCell>
-              <TableCell style={{ color: "#000", fontWeight: "bold", width: "30%" }}>
+              <TableCell style={{ backgroundColor: "#70acad", color: "#000", fontWeight: "bold", width: "30%" }}>
                 Date of Birth
               </TableCell>
             </TableRow>
@@ -84,7 +105,7 @@ export default function ScientistsTable() {
             ))}
           </TableBody>
         </Table>
-      </TableContainer>
+      </StyledTableContainer>
       <TablePagination
         rowsPerPageOptions={[5, 10, 15, 25, 30]}
         component="div"

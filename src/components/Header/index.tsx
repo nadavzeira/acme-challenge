@@ -8,7 +8,7 @@ export default function Header() {
   return (
     <Box height="10vh">
       <AppBar position="static">
-        <Toolbar>
+        <Toolbar style={{ backgroundColor: "#117577" }}>
           <BiotechIcon fontSize="large" />
           <Typography variant="h6" component="div">
             Acme Corp.
