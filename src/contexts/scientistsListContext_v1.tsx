@@ -8,6 +8,7 @@ import {
 
 import { Scientist } from "../services/types";
 import { getScientistsFromAPI } from "../services/api_v1";
+import { useFiltersContext } from "./filtersContext";
 
 interface ScientistsListContextProps {
   scientistsData: Scientist[];
@@ -20,13 +21,18 @@ interface ScientistsListProviderProps {
 const ScientistsListContext = createContext({} as ScientistsListContextProps);
 
 export function ScientistsListProvider({ children }: ScientistsListProviderProps) {
-  const [scientistsData, setScientistsData] = useState<Scientist[]>([]);
+  const [scientists, setScientists] = useState<Scientist[]>([]);
+  const [filteredScientists, setFilteredScientists] = useState<Scientist[]>([]);
+
+  const { searchQuery, genderFilter, nationalityFilter } = useFiltersContext();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const results = await getScientistsFromAPI();
-        setScientistsData(results);
+
+        setScientists(results);
+        setFilteredScientists(results);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -35,8 +41,24 @@ export function ScientistsListProvider({ children }: ScientistsListProviderProps
     fetchData();
   }, []);
 
+  useEffect(() => {
+    const filtered = scientists.filter(
+      ({ gender, nat, name }) => {
+        const isGender = (genderFilter === "All" || gender === genderFilter);
+        const isNat = (!nationalityFilter.length || nationalityFilter.includes(nat));
+        const isSearch = `${name.first}${name.last}`.toLowerCase().includes(searchQuery.trim().toLowerCase()); 
+        
+        return (
+          isGender && isNat && isSearch
+        )
+      }
+    );  
+
+    setFilteredScientists(filtered);
+  }, [scientists, searchQuery, genderFilter, nationalityFilter]);
+
   return (
-    <ScientistsListContext.Provider value={{ scientistsData }}>
+    <ScientistsListContext.Provider value={{ scientistsData: filteredScientists }}>
       {children}
     </ScientistsListContext.Provider>
   );

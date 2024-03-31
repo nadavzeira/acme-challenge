@@ -8,6 +8,7 @@ import {
   Box,
 } from "@mui/material";
 import { useScientistsListContext } from "../../../contexts/scientistsListContext_v1";
+// import { useScientistsListContext } from "../../../contexts/scientistsListContext_v2";
 import { useHistory, useParams } from "react-router-dom";
 
 export default function ScientistModal() {

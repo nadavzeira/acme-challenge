@@ -6,14 +6,14 @@ import { transformScientist } from "./utils";
 export const getScientistsFromAPI = async (gender: string, nats: string[]): Promise<Scientist[]> => {
   try {
     const SEED = "&seed=Cgen"
-    const GENDER_FILTER = gender === "All" ? "" : `&gender=${gender}`;
-    const NAT_FILTER = !nats.length ? "" : `&nat=${nats.join(',')}`; // nats.length;
+    const GENDER_FILTER = gender === "All" ? "" : `&gender=${gender.toLowerCase()}`;
+    const NAT_FILTER = !nats.length ? "" : `&nat=${nats.join(',')}`;
     
     const queryURL = `https://randomuser.me/api/?results=150${SEED}${GENDER_FILTER}${NAT_FILTER}`;
     const {
       data: { results },
     } = await axios.get<{ results: ScientistAPI[] }>(queryURL);
-
+    
     return results.map(transformScientist);
   } catch (error) {
     const axiosError = error as AxiosError;
